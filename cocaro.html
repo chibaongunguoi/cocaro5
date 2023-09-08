@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    #hinh1 {
+      position: absolute;
+      bottom: 600px;
+      left: 700px;
+      border: none;
+      background: none;
+    }
+    #hinh2 {
+      position: absolute;
+      bottom: 600px;
+      left: 810px;
+      border: none;
+      background: none;
+    }
+    #hinh3 {
+      position: absolute;
+      bottom: 600px;
+      left: 920px;
+      border: none;
+      background: none;
+    }
+    #hinh4 {
+      position: absolute;
+      bottom: 490px;
+      left: 700px;
+      border: none;
+      background: none;
+    }
+    #hinh5 {
+      position: absolute;
+      bottom: 490px;
+      left: 810px;
+      border: none;
+      background: none;
+    }
+    #hinh6 {
+      position: absolute;
+      bottom: 490px;
+      left: 920px;
+      border: none;
+      background: none;
+    }
+    #hinh7 {
+      position: absolute;
+      bottom: 380px;
+      left: 700px;
+      border: none;
+      background: none;
+    }
+    #hinh8 {
+      position: absolute;
+      bottom: 380px;
+      left: 810px;
+      border: none;
+      background: none;
+    }
+    #hinh9 {
+      position: absolute;
+      bottom: 380px;
+      left: 920px;
+      border: none;
+      background: none;
+    }
+    #play {
+      position: absolute;
+      bottom: 490px;
+      left: 1300px;
+      padding: 32px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      transition-duration: 0.4s;
+      cursor: pointer;
+    }
+    #show {
+      position: absolute;
+      bottom: 750px;
+      left: 450px;
+      border: none;
+      background: none;
+      font-size: 40px;
+      color: red;
+    }
+    #cakhia {
+      position: absolute;
+      bottom: 750px;
+      left: 700px;
+      border: none;
+      background: none;
+      font-size: 40px;
+      color: red;
+    }
+    #show1 {
+      position: absolute;
+      bottom: 750px;
+      left: 700px;
+      border: none;
+      background: none;
+      font-size: 40px;
+      color: black;
+    }
+  </style>
+  <body>
+    <p id="show1">
+      Đây là trò caro 3x3<br />Bạn đi trước máy đi sau<br />Và bạn không thắng
+      được đâu
+    </p>
+    <p id="show"></p>
+    <p id="cakhia"></p>
+    <button id="play" , onclick="window.location.reload()">Chơi lại</button>
+    <button id="hinh1" , onclick="timanh(1)">
+      <img src="image/bancotrong.png" />
+    </button>
+    <button id="hinh2" , onclick="timanh(2)">
+      <img src="image/bancotrong.png" />
+    </button>
+    <button id="hinh3" , onclick="timanh(3)">
+      <img src="image/bancotrong.png" />
+    </button>
+    <button id="hinh4" , onclick="timanh(4)">
+      <img src="image/bancotrong.png" />
+    </button>
+    <button id="hinh5" , onclick="timanh(5)">
+      <img src="image/bancotrong.png" />
+    </button>
+    <button id="hinh6" , onclick="timanh(6)">
+      <img src="image/bancotrong.png" />
+    </button>
+    <button id="hinh7" , onclick="timanh(7)">
+      <img src="image/bancotrong.png" />
+    </button>
+    <button id="hinh8" , onclick="timanh(8)">
+      <img src="image/bancotrong.png" />
+    </button>
+    <button id="hinh9" , onclick="timanh(9)">
+      <img src="image/bancotrong.png" />
+    </button>
+    <script>
+      document.getElementById("play").style.display = "none";
+      let thang1 = [123, 456, 789, 147, 258, 369, 159, 357];
+      let thang = "123456789147258369159357";
+      let onguoichoi1 = [],
+        onguoichoi2 = [],
+        kt = [],
+        ktmay = [],
+        demth = [],
+        demthmay = [],
+        ktbo3 = 0,
+        luotmay = 0,
+        dalamroi = [],
+        ktct = [],
+        ktcachthang = 0,
+        win = [],
+        th2 = 0,
+        end = 0;
+      (astrmay = ""), (th1 = 0);
+      (i = 0), (j = 0), (k = 0), (soptmay = 0), (bo3 = 0);
+      (luot = 0), (chaykt = 0), (sopt = 0);
+      (tinh = 0), (astr = "");
+      function timanh(a) {
+        let timanh = "hinh" + a;
+        document.getElementById("show1").innerHTML = "";
+        document.getElementById("cakhia").innerHTML = "";
+        onguoichoi1[luot] = a;
+        astr = a.toString();
+        luot++;
+        end = 0;
+        document.getElementById(timanh).innerHTML =
+          "<img src='image/xxanh.png'>";
+        document.getElementById(timanh).disabled = true;
+        if (luot == 5) {
+          document.getElementById("show").innerHTML =
+            "HÒA CŨNG ĐƯỢC TÍNH LÀ THUA, CHÚC BẠN MAY MẮN LẦN SAU :))";
+          document.getElementById("play").style.display = "block";
+        }
+        if ((luot == 1 && a == 5) || th1 == 1) {
+          if (luot == 2 && a == 9) {
+            th1 += 1;
+            luotmay += 1;
+            onguoichoi2.push(7);
+            document.getElementById("hinh7").innerHTML =
+              "<img src='image/trondo.png'>";
+            document.getElementById("hinh7").disabled = true;
+          } else if (luot == 1 && a == 5) {
+            th1 += 1;
+            luotmay += 1;
+            onguoichoi2.push(1);
+            document.getElementById("hinh1").innerHTML =
+              "<img src='image/trondo.png'>";
+            document.getElementById("hinh1").disabled = true;
+          }
+        } else if ((luot == 1 && a != 5) || th2 == 1) {
+          if (luot == 1 && a != 5) {
+            th2 += 1;
+            luotmay += 1;
+            onguoichoi2.push(5);
+            document.getElementById("hinh5").innerHTML =
+              "<img src='image/trondo.png'>";
+            document.getElementById("hinh5").disabled = true;
+          } else if (
+            (luot == 2 && onguoichoi1[0] == 6) ||
+            (luot == 2 && onguoichoi1[0] == 8) ||
+            (luot == 2 && onguoichoi1[0] == 3)
+          ) {
+            if (onguoichoi1[1] == 9) {
+            } else {
+              th2 += 1;
+              luotmay += 1;
+              onguoichoi2.push(9);
+              document.getElementById("hinh9").innerHTML =
+                "<img src='image/trondo.png'>";
+              document.getElementById("hinh9").disabled = true;
+            }
+          }
+        }
+        if (win[0] != a && typeof win[0] != "undefined") {
+          luotmay += 1;
+          timanh = "hinh" + win[0];
+          for (i = 0; i <= win.length - 1; i++) {
+            win.shift();
+          }
+          document.getElementById(timanh).innerHTML =
+            "<img src='image/trondo.png'>";
+          document.getElementById(timanh).disabled = true;
+          document.getElementById("show").innerHTML =
+            "ĐỎ ĐÃ THẮNG, CHÚC BẠN MAY MẮN LẦN SAU :))";
+          document.getElementById("play").style.display = "block";
+          for (i = 1; i <= 9; i++) {
+            timanh = "hinh" + i;
+            document.getElementById(timanh).disabled = true;
+          }
+        }
+        if (win[1] != a && typeof win[1] != "undefined") {
+          luotmay += 1;
+          timanh = "hinh" + win[1];
+          for (i = 0; i <= win.length - 1; i++) {
+            win.shift();
+          }
+          document.getElementById(timanh).innerHTML =
+            "<img src='image/trondo.png'>";
+          document.getElementById(timanh).disabled = true;
+          document.getElementById("show").innerHTML =
+            "ĐỎ ĐÃ THẮNG, CHÚC BẠN MAY MẮN LẦN SAU :))";
+          document.getElementById("play").style.display = "block";
+          for (i = 1; i <= 9; i++) {
+            timanh = "hinh" + i;
+            document.getElementById(timanh).disabled = true;
+          }
+        }
+        for (i = 0; i <= win.length - 1; i++) {
+          win.shift();
+        }
+        for (i = 0; i < thang.length; i++) {
+          if (thang[i] == astr) {
+            sopt += 1;
+            tinh = (i + 1) % 3;
+            if (tinh == 0) {
+              tinh = (i + 1) / 3;
+            } else if (tinh == 1) {
+              tinh = (i + 3) / 3;
+            } else {
+              tinh = (i + 2) / 3;
+            }
+            kt.push(tinh);
+          }
+        }
+        for (i = 0; i < sopt; i++) {
+          demth[kt[i]] = 0;
+        }
+        for (i = 0; i < sopt; i++) {
+          demth[kt[i]] += 1;
+        }
+        for (i = 0; i < sopt; i++) {
+          if (typeof dalamroi[i] != "undefined") {
+            demth[dalamroi[i]] = 0;
+          } else {
+            break;
+          }
+        }
+        for (i = 1; i <= 8; i++) {
+          if (demth[i] == 2) {
+            dalamroi.push(i);
+            bo3 = thang1[i - 1];
+            while (bo3 > 0) {
+              ktbo3 = bo3 % 10;
+              bo3 = (bo3 - ktbo3) / 10;
+              for (j = 0; j <= luot; j++) {
+                if (ktbo3 == onguoichoi1[j]) {
+                  break;
+                }
+              }
+              if (j == luot + 1) {
+                break;
+              }
+            }
+            for (k = 0; k < luot; k++) {
+              if (ktbo3 == onguoichoi2[k]) {
+                break;
+              }
+            }
+            if (k == luot && luotmay < luot) {
+              luotmay += 1;
+              timanh = "hinh" + ktbo3;
+              onguoichoi2.push(ktbo3);
+              document.getElementById(timanh).innerHTML =
+                "<img src='image/trondo.png'>";
+              document.getElementById(timanh).disabled = true;
+              break;
+            }
+          }
+        }
+        if (luotmay < luot) {
+          for (i = 1; i <= 9; i++) {
+            for (j = 0; j < luot; j++) {
+              if (i == onguoichoi1[j]) {
+                break;
+              }
+            }
+            for (k = 0; k < luot - 1; k++) {
+              if (i == onguoichoi2[k]) {
+                break;
+              }
+            }
+            if (j == luot && k == luot - 1) {
+              luotmay += 1;
+              timanh = "hinh" + i;
+              onguoichoi2.push(i);
+              document.getElementById(timanh).innerHTML =
+                "<img src='image/trondo.png'>";
+              document.getElementById(timanh).disabled = true;
+              break;
+            }
+          }
+        }
+        astrmay = onguoichoi2[luot - 1].toString();
+        for (i = 0; i < thang.length; i++) {
+          if (thang[i] == astrmay) {
+            soptmay += 1;
+            tinh = (i + 1) % 3;
+            if (tinh == 0) {
+              tinh = (i + 1) / 3;
+            } else if (tinh == 1) {
+              tinh = (i + 3) / 3;
+            } else {
+              tinh = (i + 2) / 3;
+            }
+            ktmay.push(tinh);
+          }
+        }
+        for (i = 0; i < soptmay; i++) {
+          demthmay[ktmay[i]] = 0;
+        }
+        for (i = 0; i < soptmay; i++) {
+          demthmay[ktmay[i]] += 1;
+        }
+        for (i = 0; i < soptmay; i++) {
+          if (typeof dalamroi[i] != "undefined") {
+            demthmay[dalamroi[i]] = 0;
+          } else {
+            break;
+          }
+        }
+        for (i = 1; i <= 8; i++) {
+          if (demthmay[i] == 2) {
+            dalamroi.push(i);
+            bo3 = thang1[i - 1];
+            while (bo3 > 0) {
+              ktbo3 = bo3 % 10;
+              bo3 = (bo3 - ktbo3) / 10;
+              for (j = 0; j <= luot; j++) {
+                if (ktbo3 == onguoichoi2[j]) {
+                  break;
+                }
+              }
+              if (j == luot + 1) {
+                break;
+              }
+            }
+            for (k = 0; k < luot; k++) {
+              if (ktbo3 == onguoichoi1[k]) {
+                break;
+              }
+            }
+            if (k == luot) {
+              win.push(ktbo3);
+            }
+          }
+        }
+        if (win.length == 2) {
+          document.getElementById("cakhia").innerHTML = "CÒN CỨU ĐƯỢC KO :))";
+        }
+      }
+    </script>
+  </body>
+</html>
