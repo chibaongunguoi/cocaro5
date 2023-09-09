@@ -207,13 +207,9 @@
             document.getElementById("hinh5").innerHTML =
               "<img src='image/trondo.png'>";
             document.getElementById("hinh5").disabled = true;
-          } else if (
-            (luot == 2 && onguoichoi1[0] == 6) ||
-            (luot == 2 && onguoichoi1[0] == 8) ||
-            (luot == 2 && onguoichoi1[0] == 3)
-          ) {
-            if (onguoichoi1[1] == 9) {
-            } else if ((onguoichoi1[0] = 8)) {
+          }
+          if (luot == 2) {
+            if (onguoichoi1[0] == 8) {
               if (onguoichoi1[1] % 3 == 1) {
                 luotmay += 1;
                 onguoichoi2.push(7);
@@ -221,13 +217,29 @@
                   "<img src='image/trondo.png'>";
                 document.getElementById("hinh7").disabled = true;
               }
-            } else {
-              th2 += 1;
-              luotmay += 1;
-              onguoichoi2.push(9);
-              document.getElementById("hinh9").innerHTML =
-                "<img src='image/trondo.png'>";
-              document.getElementById("hinh9").disabled = true;
+              if (onguoichoi1[1] % 3 == 0) {
+                luotmay += 1;
+                onguoichoi2.push(9);
+                document.getElementById("hinh9").innerHTML =
+                  "<img src='image/trondo.png'>";
+                document.getElementById("hinh9").disabled = true;
+              }
+            }
+            if (onguoichoi1[1] == 8) {
+              if (onguoichoi1[0] % 3 == 1) {
+                luotmay += 1;
+                onguoichoi2.push(7);
+                document.getElementById("hinh7").innerHTML =
+                  "<img src='image/trondo.png'>";
+                document.getElementById("hinh7").disabled = true;
+              }
+              if (onguoichoi1[0] % 3 == 0) {
+                luotmay += 1;
+                onguoichoi2.push(9);
+                document.getElementById("hinh9").innerHTML =
+                  "<img src='image/trondo.png'>";
+                document.getElementById("hinh9").disabled = true;
+              }
             }
           }
         }
